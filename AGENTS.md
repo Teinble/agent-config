@@ -14,6 +14,9 @@ These rules govern edits here; they are not a global instruction payload.
   them. Do not add generic knowledge folders or speculative reference files.
 - Keep skill descriptions precise and workflows proportional to the task.
   Preserve permission boundaries; instructions do not authorize external actions.
+- Describe current behavior and non-obvious constraints in instructions and docs,
+  not abandoned attempts or editing history. Preserve actionable migration guidance
+  and verified rationale; describe process history only when requested.
 - Update README setup guidance when loading paths or installation steps change.
   Update registry.json when personal skill behavior or metadata changes.
 - For documentation-only changes, inspect the diff and reference targets.

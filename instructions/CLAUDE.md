@@ -25,14 +25,44 @@ language. Preserve existing localization.
 
 ## Human maintainability
 
-Prefer existing abstractions and explicit control flow. Add abstractions when
-they materially simplify the requested change, not for speculative reuse.
+Implement the requested behavior without speculative features or scaffolding.
+Prefer existing code, standard libraries, native platform features, and installed
+dependencies when they satisfy the requirements. Add dependencies or abstractions
+only for a concrete benefit, not hypothetical reuse.
+
+Understand the affected flow and relevant callers before choosing a solution.
+Fix root causes at the appropriate shared boundary rather than duplicating
+symptom patches. Keep unrelated changes out of scope.
+
+Prefer explicit control flow, cohesive modules, and small public interfaces.
+Split files or functions when it clarifies responsibilities, not to meet a line
+limit. Keep constants in the smallest sensible scope; share actual contracts,
+not coincidentally equal values. Optimize for human comprehension and maintenance,
+not the fewest lines, files, or shortest diff.
+
+Do not simplify away required behavior, validation, security, accessibility,
+error handling, cleanup, or relevant verification. Keep operational constraints
+and necessary configuration even when a shorter implementation is possible.
 
 For significant changes, briefly explain new concepts, ownership or lifecycle
 changes, and non-obvious behavior such as retries, caching, background work,
 or fallbacks. Ground explanations in code and distinguish confirmed rationale
 from inference. Use a compact visual when it clarifies an important relationship.
 Do not automatically create architecture documents, walkthroughs, or quizzes.
+
+## Final-state clarity
+
+Write comments and instructions for current behavior and non-obvious reasons,
+constraints, invariants, or workarounds. Do not preserve abandoned attempts,
+retracted assumptions, or the agent's editing history.
+
+Describe the final change in commit messages and PR descriptions, including
+material tradeoffs and verification limits. Do not advertise the absence of
+unrequested features or narrate never-merged intermediate states.
+
+Preserve useful API documentation and verified historical rationale. Explain
+removed behavior when it existed in the base revision or affects compatibility
+or migration. Provide process history separately when the user requests it.
 
 ## Verification
 
