@@ -50,54 +50,27 @@
 		"downloadUrl": "/skills/eli5/SKILL.md"
 	},
 	{
-		"id": "review-fix-loop",
-		"command": "/review-fix-loop",
-		"name": "Review Fix Loop",
-		"summary": "Review, validate findings, fix confirmed issues, and review again.",
-		"description": "Use independent agents to improve an existing diff without blindly accepting review comments.",
+		"id": "maintainer-review",
+		"command": "/maintainer-review",
+		"name": "Maintainer Review",
+		"summary": "Read-only review with quick, focused, and full scopes.",
+		"description": "Assess correctness, test evidence, and human maintainability without automatic fixes or review loops.",
 		"kind": "mine",
 		"tags": [
-			"multi-agent",
+			"read-only",
 			"review",
-			"verification"
+			"test quality"
 		],
 		"workflow": [
-			"Ask an independent agent to review the current diff.",
-			"Validate every finding against the code and intended behavior.",
-			"Fix confirmed findings, rerun focused checks, then review again."
+			"Establish the diff, requirements, and review depth.",
+			"Review directly by default; use bounded independent reviewers for requested full reviews when useful.",
+			"Validate and deduplicate findings, then report concrete impact and verification limits."
 		],
 		"guardrails": [
-			"Never treat a review comment as true without evidence.",
-			"Reject false positives with a concrete explanation.",
-			"Stop when no actionable findings remain or a real blocker is documented."
+			"No automatic edits, recursive delegation, or fix loops.",
+			"Do not demand tests for mechanical changes or treat style preferences as defects.",
+			"Install the complete skill folder, including its code-quality and test-quality references."
 		],
-		"copyText": "/review-fix-loop Review the current work with independent agents, validate every finding, fix only confirmed issues, and repeat until no actionable findings remain.",
-		"downloadUrl": "/skills/review-fix-loop/SKILL.md"
-	},
-	{
-		"id": "implement-review-loop",
-		"command": "/implement-review-loop",
-		"name": "Implement Review Loop",
-		"summary": "Implementation with verification, independent review, and visual QA.",
-		"description": "Carry a change from implementation through checks and repeated review until it is clean.",
-		"kind": "mine",
-		"tags": [
-			"implementation",
-			"quality",
-			"visual QA"
-		],
-		"workflow": [
-			"Implement the smallest complete change and run relevant checks.",
-			"Have an independent agent review correctness, clarity, and maintainability.",
-			"For UI work, inspect screenshots at affected widths and both themes.",
-			"Fix confirmed issues and repeat review until the result converges."
-		],
-		"guardrails": [
-			"Keep unrelated user changes untouched.",
-			"Do not push or deploy unless the user requested it.",
-			"Stop and report evidence when an external blocker prevents convergence."
-		],
-		"copyText": "/implement-review-loop Implement this change, verify it, independently review it, and fix confirmed findings until the result converges. For frontend work, include screenshot-based UI review.",
-		"downloadUrl": "/skills/implement-review-loop/SKILL.md"
+		"copyText": "Use maintainer-review for a quick, read-only review of my uncommitted changes. Report supported findings and verification limits; do not make changes."
 	}
 ]
