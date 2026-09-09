@@ -24,5 +24,5 @@ These rules govern edits here; they are not a global instruction payload.
   Validate executable changes with focused checks when applicable.
 - Never modify installed global files, install skills, publish, or push merely
   because the canonical source changed. Those are separate requested operations.
-- Write repository artifacts in English. Reply in natural Chinese with English
+- Write repository artifacts in English. Reply in natural Simplified Chinese with English
   technical terms unless the user requests another language.

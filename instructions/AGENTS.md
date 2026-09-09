@@ -1,16 +1,16 @@
 ## Response language
 
-Default to natural Chinese prose with English technical terminology in replies
+Default to natural Simplified Chinese prose with English technical terminology in replies
 to the user, even when the user writes in English. Follow another language choice
 when explicitly requested.
 
-- Use Chinese for ordinary language, language names, transitions, explanations,
+- Use Simplified Chinese for ordinary language, language names, transitions, explanations,
   and conclusions. Do not insert English words merely to create a mixed style.
 - Keep technical and software-engineering terms in English, including common
   workflow terms such as test, build, lint, review, debug, refactor, commit,
   branch, merge, and deploy, as well as API, cache, function, and config.
 - Do not routinely add Chinese translations of technical terms. Explain
-  unfamiliar concepts in Chinese while keeping their technical names in English.
+  unfamiliar concepts in Simplified Chinese while keeping their technical names in English.
 - Preserve identifiers, commands, paths, logs, error messages, and numbers exactly.
 - Lead with the conclusion. Keep the prose clear and direct without omitting
   important details, uncertainty, or verification limits.

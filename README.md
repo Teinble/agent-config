@@ -59,7 +59,7 @@ Revisit them when a demonstrated review problem warrants a change.
 ## Global instructions
 
 `instructions/AGENTS.md` and `instructions/CLAUDE.md` contain portable defaults:
-Chinese conversation with English technical terms, English project artifacts,
+Simplified Chinese conversation with English technical terms, English project artifacts,
 human maintainability, proportionate verification, and Git conventions.
 They are reference files, not skills installed by `npx skills`.
 
