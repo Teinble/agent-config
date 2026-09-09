@@ -15,6 +15,61 @@ Edit skills under `skills/`. `registry.json` contains their human-facing website
 descriptions. Keep project-specific knowledge in the project's repository.
 Third-party skills should be installed from their upstream repositories.
 
+### Skill synchronization
+
+Requires Node.js 22+ and npm (including npx). Clone this repository, then run:
+
+```sh
+node scripts/skills.mjs sync --dry-run
+node scripts/skills.mjs sync
+```
+
+The script reads skills.json relative to itself, regardless of the working
+directory. On another machine, pull this repository and run the same command.
+Only published upstream content is installed; local edits to personal skills
+are not installed by sync.
+
+To add a third-party skill, review its upstream SKILL.md and bundled resources,
+verify its exact name, and add that name under its provider in skills.json.
+For a new provider, add an object with source (GitHub owner/repo) and a non-empty
+skills array. Preview, sync, and commit the manifest to share the selection.
+registry.json remains website metadata for personal skills, not the install list.
+
+Sync installs missing selections using the pinned skills CLI. Existing matching
+content is preserved, including local edits. Codex uses ~/.agents/skills directly;
+if only the Claude Code entry is missing, sync adds a symlink to that existing
+content without downloading it again. The script respects CLAUDE_CONFIG_DIR,
+CODEX_HOME (for legacy shadowing checks), and XDG_STATE_HOME (for the CLI lock).
+
+This adapter supports global GitHub selections for Codex and Claude Code on
+Linux/macOS. It checks the CLI's v3 global lock and filesystem targets, rejecting
+unknown provenance, source/ref conflicts, broken installs, independent copies,
+and unsupported lock formats before any installation. Inspect and resolve those
+cases explicitly; sync does not adopt, delete, or overwrite them. Run only one
+skills management command at a time. CLI or verification failures exit nonzero;
+earlier successful installations are retained and reported in the plan. A retry
+checks current state rather than reinstalling successful selections.
+
+Sync is not update or remove. Use explicit upstream CLI operations for those,
+with selected skill names and the intended global/agent scope. Removing a
+manifest entry does not uninstall it, and unselected installations remain
+untouched. There are no wrapper update/remove commands. The manifest tracks
+selection, not immutable skill revisions; fresh machines may receive newer
+upstream content than existing machines.
+
+The CLI version is pinned in scripts/skills.mjs because this adapter depends on
+its lock format and installation layout. Recheck the upstream
+[lock handling](https://github.com/vercel-labs/skills/blob/v1.5.25/src/skill-lock.ts)
+and [installer](https://github.com/vercel-labs/skills/blob/v1.5.25/src/installer.ts)
+when upgrading. The native experimental_install command restores project-level
+skills; it does not provide this global sync behavior.
+
+Run isolated tests without downloading or installing upstream skills:
+
+```sh
+node --test scripts/skills.test.mjs
+```
+
 ### Maintainer review
 
 Install the complete folder, including references:

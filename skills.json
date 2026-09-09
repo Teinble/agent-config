@@ -1,0 +1,18 @@
+{
+  "agents": ["codex", "claude-code"],
+  "global": true,
+  "providers": [
+    {
+      "source": "Teinble/agent-config",
+      "skills": ["ask", "eli5", "maintainer-review"]
+    },
+    {
+      "source": "humanlayer/skills",
+      "skills": ["show-me"]
+    },
+    {
+      "source": "mattpocock/skills",
+      "skills": ["grilling", "handoff", "writing-for-agents"]
+    }
+  ]
+}
