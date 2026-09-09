@@ -29,7 +29,11 @@ Example requests:
 - Use maintainer-review to assess test quality in this diff.
 - Use maintainer-review for a full review against main.
 
-Default and focused reviews use one reviewer. Full reviews may use independent
+Default and quick reviews scan correctness, code quality, and test evidence with
+one reviewer; quick limits depth. Focused reviews inspect the selected boundary.
+Stack reviews distinguish each PR from combined behavior and local modifications.
+Reports separate finding status from revision- and environment-specific evidence.
+Full reviews may use independent
 reviewers for relevant boundaries, including another model when available and
 authorized. All modes report findings without fixes or recursive review loops.
 A standalone SKILL.md download is insufficient because it omits the references.

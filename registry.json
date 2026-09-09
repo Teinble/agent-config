@@ -62,9 +62,9 @@
 			"test quality"
 		],
 		"workflow": [
-			"Establish the diff, requirements, and review depth.",
-			"Review directly by default; use bounded independent reviewers for requested full reviews when useful.",
-			"Validate and deduplicate findings, then report concrete impact and verification limits."
+			"Establish target revisions, requirements, and depth; distinguish pushed PRs, stack behavior, and local changes.",
+			"Quick reviews scan correctness, code quality, and test evidence; focused reviews inspect the selected boundary.",
+			"Use independent reviewers for requested full reviews when useful; validate findings and separate their status from environment-specific evidence."
 		],
 		"guardrails": [
 			"No automatic edits, recursive delegation, or fix loops.",

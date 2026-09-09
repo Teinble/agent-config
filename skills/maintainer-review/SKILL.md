@@ -16,24 +16,32 @@ requested scope; ask only when different plausible scopes would change the revie
 Read relevant contracts and callers, not the whole repo. With no spec, state the
 limit and use explicit user requirements and established contracts; invent none.
 
-- Default / quick: one reviewer, proportionate inspection of the target diff
-  and important affected paths. No automatic full test suite.
+- Default / quick: one reviewer, an initial scan of correctness, code quality,
+  and test evidence, then proportionate inspection of important affected paths.
+  No automatic full test suite.
 - Focused: inspect only the requested boundary in depth. State excluded areas.
 - Full: cover material risks across the boundaries below; independent reviewers
   are optional, not a fixed quota. Use multiple agents only when the user requests
   full or multi-agent review and independent scopes justify it.
 
-Quick narrows coverage, not the evidence needed to report a finding.
+Quick limits depth, not the initial boundaries checked or the evidence needed
+to report a finding. Focused reviews may exclude unrequested boundaries.
+
+For stacked PRs, identify each PR's base/head revisions and the final stack tip.
+Distinguish per-PR diffs from combined behavior; attribute findings to the relevant
+PR and note cross-PR dependencies. Keep pushed revisions separate from local
+commits and dirty worktree changes. Local fixes or dependencies are not evidence
+that a pushed PR contains them. If remote revisions cannot be confirmed, say so.
 
 ## Review boundaries
 
 - Behavior / correctness: check requirement compliance, regressions, contracts,
   ownership, lifecycle, security, and failure handling relevant to the change.
   Separate a demonstrated defect from a missing requirement or an open question.
-- Code quality / clarity: when reviewing structure, complexity, or documentation,
-  read [code-quality.md](references/code-quality.md).
-- Test / evidence: when reviewing changed tests or verification of changed behavior,
-  read [test-quality.md](references/test-quality.md).
+- Code quality / clarity: read [code-quality.md](references/code-quality.md)
+  when this boundary is included.
+- Test / evidence: read [test-quality.md](references/test-quality.md)
+  when this boundary is included, even if no test files changed.
 
 These are lenses, not required report sections or sources of finding quotas.
 Prefer the project's documented conventions over generic design preferences.
@@ -76,7 +84,12 @@ Rank by concrete impact and urgency, not by category or reviewer count.
 Distinguish confirmed defects from optional design suggestions and open questions.
 Do not relabel a style concern as a correctness defect to make it seem important.
 
-Briefly state scope, checks actually run, and material verification limits.
+Separate review coverage, finding status, and evidence limits in the handoff.
+Distinguish an open finding, a locally changed implementation, verification at a
+specific revision, and inclusion in the pushed PR; none implies the others.
+On a requested re-review, confirm the updated target revision, recheck prior
+findings, and inspect relevant regression risks introduced by the fixes.
+State checks actually run and tie their results to the reviewed code.
 Use the user's conversation language while preserving code identifiers.
 If there are no supported findings, say so without claiming the change is risk-free.
 Stop after the report. Do not apply fixes or rerun review until it comes back clean.

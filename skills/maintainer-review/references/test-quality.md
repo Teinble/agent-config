@@ -28,5 +28,19 @@ coverage alone. Missing evidence is not itself proof of an implementation defect
   Do not require permanent tests for one-off evidence, but consequential claims
   need a reproducible basis. Production actions require separate authorization.
 
+## Environment-dependent evidence
+
+Tie environment-dependent conclusions to the code revision (including relevant
+local modifications) and the dependency/runtime versions, execution identity or
+permissions, and mounts that affect the result. Do not expose credentials or
+collect unrelated environment details.
+
+Host checks, local tests, and container runs establish different evidence.
+Before attributing a failure to product code, compare the relevant environments
+against the supported deployment contract, including dependencies, paths, and
+mounts. A missing required mount may be a deployment-config defect; environmental
+differences do not automatically excuse a failure or prove a code defect.
+If equivalence cannot be established, report that limit and the next useful check.
+
 Report what actually ran separately from inspected test code and proposed checks.
 Do not turn a narrow passing scenario into a universal guarantee.
