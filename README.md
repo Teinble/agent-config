@@ -70,6 +70,24 @@ Run isolated tests without downloading or installing upstream skills:
 node --test scripts/skills.test.mjs
 ```
 
+### Project retrospective
+
+Use project-retrospective to learn how the project works through a completed
+change, with code evidence, design tradeoffs, and verification limits:
+
+> Use project-retrospective to explain this completed stack and identify what
+> should be retained or considered for cleanup. Do not delete anything.
+
+The skill defaults to read-only explanation. It can use the separately installed
+show-me skill when a visual helps. Only an explicit request for cleanup assessment
+or a task closeout checklist loads the cleanup reference, covering branches,
+worktrees, and task-related resources without executing cleanup. A100-4 resource
+cleanup uses a100-cleanup when separately requested and available; that skill is
+not a portable Git cleanup dependency.
+
+Install the complete skill folder, including references/cleanup-handoff.md. The
+selection is recorded in skills.json; sync installs published upstream content.
+
 ### Maintainer review
 
 Install the complete folder, including references:

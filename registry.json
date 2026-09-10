@@ -72,5 +72,26 @@
 			"Install the complete skill folder, including its code-quality and test-quality references."
 		],
 		"copyText": "Use maintainer-review for a quick, read-only review of my uncommitted changes. Report supported findings and verification limits; do not make changes."
+	},
+	{
+		"id": "project-retrospective",
+		"command": "/project-retrospective",
+		"name": "Project Retrospective",
+		"summary": "Learn project behavior and design decisions through completed work.",
+		"description": "Explain scoped changes using repository evidence, distinguish verification limits, and prepare a cleanup handoff only when explicitly requested.",
+		"kind": "mine",
+		"tags": ["learning", "repository", "retrospective"],
+		"workflow": [
+			"Establish the target revisions and separate pushed, local, and uncommitted work.",
+			"Trace a concrete flow and explain consequential decisions with evidence.",
+			"Summarize confidence and deferred work; assess cleanup candidates only when explicitly requested."
+		],
+		"guardrails": [
+			"Keep explanation read-only; save a report only when requested.",
+			"Distinguish recorded rationale from inference and historical checks from current evidence.",
+			"Load the cleanup reference only for explicit cleanup assessment or closeout checklist requests.",
+			"Install the complete skill folder, including its cleanup reference."
+		],
+		"copyText": "Use project-retrospective to teach me how this completed change works, why the design was chosen, and what remains. Identify cleanup candidates without deleting anything."
 	}
 ]
