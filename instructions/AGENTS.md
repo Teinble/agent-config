@@ -98,6 +98,9 @@ appropriate authority.
   recommending reauthentication.
 - For UI PRs, include after-change screenshots. Keep screenshots temporary;
   do not commit them unless explicitly requested.
+- When attaching screenshots or media to a PR, issue, or comment, read
+  `workflows/github-attachments.md` for native `gh --attach` usage, version
+  checks, and upload verification.
 
 ## Knowledge and conditional instructions
 
