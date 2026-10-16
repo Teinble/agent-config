@@ -1,7 +1,8 @@
-# a100-4
+# boson-dev-cluster
 
-Load only when the local global-instruction entry explicitly selects this host.
-Do not apply this profile to a Mac or other host merely because it has a GPU.
+Load only when the local global-instruction entry explicitly selects this profile.
+It applies to Boson dev cluster hosts such as a100-1 and a100-4. Do not apply it
+to a Mac or other host merely because it has a GPU.
 
 Use /local/numa1/scratch/xiling for disposable artifacts. Avoid /tmp when this
 scratch directory is available and writable. If unavailable, report the mismatch

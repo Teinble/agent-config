@@ -143,7 +143,7 @@ They are reference files, not skills installed by `npx skills`.
 | Content | Location | Load when |
 | --- | --- | --- |
 | Portable defaults | instructions/AGENTS.md or instructions/CLAUDE.md | Every session through the local entry |
-| Host facts | instructions/machines/a100-4.md | Explicitly selected on a100-4 |
+| Host facts | instructions/machines/boson-dev-cluster.md | Explicitly selected on Boson dev cluster hosts |
 | GitHub troubleshooting | instructions/workflows/github-auth.md | An auth or connectivity error occurs |
 | Herdr workflow | Installed herdr-collaboration skill | The task involves Herdr |
 | Project knowledge | The owning project's existing docs | The relevant subsystem is in scope |
@@ -153,23 +153,23 @@ Clone this repository to a stable local path. Back up and inspect existing
 Create a small local entry file at each location. Replace the example absolute
 paths below with the actual clone path on that machine.
 
-Codex entry on a100-4:
+Codex entry on a Boson dev cluster host (for example a100-1 or a100-4):
 
 ```markdown
 Read and follow these files before working:
 - /absolute/path/agent-config/instructions/AGENTS.md
-- /absolute/path/agent-config/instructions/machines/a100-4.md
+- /absolute/path/agent-config/instructions/machines/boson-dev-cluster.md
 ```
 
-Claude entry on a100-4:
+Claude entry on a Boson dev cluster host:
 
 ```markdown
 Read and follow these files before working:
 - /absolute/path/agent-config/instructions/CLAUDE.md
-- /absolute/path/agent-config/instructions/machines/a100-4.md
+- /absolute/path/agent-config/instructions/machines/boson-dev-cluster.md
 ```
 
-On a Mac or another host, omit the a100-4 reference. Add a host profile only when
+On a Mac or another host, omit the host profile reference. Add a host profile only when
 there are actual local facts to record. Do not select profiles by guessing.
 
 These entries instruct the agent to read files; they are not a Markdown import
